@@ -4,7 +4,7 @@ Your AI, at home on your computer. Use your own supported AI account, API key or
 
 [**Open app downloads →**](https://github.com/LogicOutLoud/thinklet-releases/releases) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
 
-**First Mac beta:** the public app package is being prepared. If Releases has no app ZIP yet, the download is not available yet. The instructions are ready here; do not try to install this documentation repository.
+**Mac beta:** app packages are listed under Releases → Assets. If no app ZIP is listed, there is no published package to install yet. This documentation ZIP is not the app; use the instructions below to find the app download.
 
 ## Download and install on a Mac
 
@@ -23,7 +23,7 @@ This public repository contains downloads and instructions. The app’s source i
 
 ## Available computers
 
-- **Apple silicon Macs:** first public beta being prepared, for macOS 13 or later.
+- **Apple silicon Macs:** the first Mac beta targets M1 or newer and macOS 13 or later. Download only an app package listed under Releases → Assets.
 - **Intel Macs, Windows and Linux:** packages are not yet available from this repository. Use only a package explicitly listed for your computer when one is published.
 
 ## Help and updates
