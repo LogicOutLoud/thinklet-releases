@@ -2,11 +2,11 @@
 
 Your AI, at home on your computer. Use your own supported AI account, API key or private local AI.
 
-[**Download the Mac beta — Apple silicon, macOS 13+ →**](https://github.com/LogicOutLoud/thinklet-releases/releases/download/v1.0.0-beta.3-mac-arm64/Thinklet-1.0.0-beta.3-mac-arm64.zip) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.3-mac-arm64) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
+[**Download the Mac beta — Apple silicon, macOS 13+ →**](https://github.com/LogicOutLoud/thinklet-releases/releases/download/v1.0.0-beta.4-mac-arm64/Thinklet-1.0.0-beta.4-mac-arm64.zip) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.4-mac-arm64) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
 
 **Available now:** the Developer ID signed, Apple-notarized Mac beta for Apple silicon (M1 or newer), macOS 13 Ventura or later. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
 
-**New in beta 3:** ask chat to design or build a Thinklet, iPhone app, website/web app, Mac app or game. Specialized modes keep the project brief and interactive preview together. iPhone and Mac projects are HTML/React prototypes inside Thinklet; native IPA/TestFlight and standalone app export are not included. This update also fixes video contact-sheet delivery to vision models. [What changed](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.3-mac-arm64).
+**New in beta 4:** your library starts with 20 cards and loads 20 more as you scroll. Search and sorting still cover the full library. Unopened website Thinklets no longer start hidden browser pages at launch, and background detail checks share time with navigation. Includes the earlier app-development modes, video reading and Later-card fix. iPhone and Mac projects remain interactive prototypes; native export is not included. [What changed](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.4-mac-arm64).
 
 ## Download and install on a Mac
 
