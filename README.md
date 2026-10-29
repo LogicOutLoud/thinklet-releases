@@ -2,9 +2,11 @@
 
 Your AI, at home on your computer. Use your own supported AI account, API key or private local AI.
 
-[**Download the Mac beta — Apple silicon, macOS 13+ →**](https://github.com/LogicOutLoud/thinklet-releases/releases/download/v1.0.0-beta.1-mac-arm64/Thinklet-1.0.0-beta.1-mac-arm64.zip) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.1-mac-arm64) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
+[**Download the Mac beta — Apple silicon, macOS 13+ →**](https://github.com/LogicOutLoud/thinklet-releases/releases/download/v1.0.0-beta.2-mac-arm64/Thinklet-1.0.0-beta.2-mac-arm64.zip) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.2-mac-arm64) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
 
 **Available now:** the Developer ID signed, Apple-notarized Mac beta for Apple silicon (M1 or newer), macOS 13 Ventura or later. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
+
+**New in beta 2:** attach gameplay clips, study timestamped video frames locally, and use the contact sheets and individual images for video-to-game builds. [What changed](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.2-mac-arm64).
 
 ## Download and install on a Mac
 
