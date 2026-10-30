@@ -1,7 +1,8 @@
 THINKLET — START HERE
 
 This guide is for the Mac app download.
-The first Mac beta requires macOS 13 (Ventura) or later and Apple silicon.
+Thinklet requires macOS 13 (Ventura) or later.
+The universal Mac download supports Apple silicon and Intel Macs.
 
 1. CHECK YOUR DOWNLOAD
    Download the Mac app ZIP from:
@@ -17,9 +18,9 @@ The first Mac beta requires macOS 13 (Ventura) or later and Apple silicon.
    the release's Assets instead. If there is no app asset, it is not available
    yet; do not try to build or install this documentation repository.
 
-2. UNZIP
-   In Finder, double-click the downloaded app ZIP. The extracted download
-   contains Thinklet.app and this START-HERE.txt file.
+2. OPEN THE DOWNLOAD
+   In Finder, double-click the downloaded app ZIP to extract Thinklet.app.
+   If you downloaded the DMG, open it and use the Thinklet.app inside it.
 
 3. INSTALL
    Quit an older copy of Thinklet if it is open.
@@ -40,6 +41,12 @@ The first Mac beta requires macOS 13 (Ventura) or later and Apple silicon.
    Enter any credentials inside Thinklet or the provider's sign-in page.
    Never post a password or API key in a GitHub issue.
    You can change your connection later in Settings > AI & accounts.
+
+6. FUTURE UPDATES
+   Thinklet checks after launch and every three hours, and downloads updates
+   in the background. Choose Restart and install inside Thinklet when ready.
+   You can also use Settings > Help & About > Updates > Check now.
+   Ordinary quitting never installs an update.
 
 NEED HELP?
    Use Thinklet's Help menu or email chris@logicoutloud.com.

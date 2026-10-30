@@ -2,16 +2,16 @@
 
 Your AI, at home on your computer. Use your own supported AI account, API key or private local AI.
 
-[**Download the Mac beta — Apple silicon, macOS 13+ →**](https://github.com/LogicOutLoud/thinklet-releases/releases/download/v1.0.0-beta.5-mac-arm64/Thinklet-1.0.0-beta.5-mac-arm64.zip) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.5-mac-arm64) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
+[**Download the latest Mac beta →**](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/latest) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
 
-**Available now:** the Developer ID signed, Apple-notarized Mac beta for Apple silicon (M1 or newer), macOS 13 Ventura or later. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
+**Available now:** the Developer ID signed, Apple-notarized universal Mac app for **Apple silicon and Intel Macs, macOS 13 Ventura or later**. The download above always points to the latest public release. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
 
-**New in beta 5:** dismiss the Home Open loops card, select any number of loops for bulk cleanup, search and filter by age or status, edit tasks and dates, and undo saved changes. Typed chat and voice can manage the same loops from your requests. Library search starts across all Thinklets and matches titles, descriptions, tags, keywords and other descriptive metadata, while cards still load 20 at a time. Includes the earlier app-development modes, video reading and Later-card fix. iPhone and Mac projects remain interactive prototypes; native export is not included. [What changed](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.5-mac-arm64).
+**New in beta 10:** browse a Thinklet’s pictures, sound, video and other media from **Assets…**; mute each Thinklet from its header or menu; prepare imported games for multiplayer and review them for publishing to Discover; generate and apply cover art through Codex’s built-in image generation; and use the repaired **This Mac** settings. Evolution progress stays compact without filling the game area with code. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.10-mac-universal).
 
 ## Download and install on a Mac
 
-1. Open **[Releases](https://github.com/LogicOutLoud/thinklet-releases/releases)**. Under **Assets**, download the Mac app ZIP that matches your computer. The first beta is for **Apple silicon (M1 or newer), macOS 13 Ventura or later**. Check Apple menu → About This Mac.
-2. Double-click the downloaded ZIP in Finder. Open **START-HERE.txt** in the extracted download for the full instructions.
+1. Download the **[Mac disk image (.dmg)](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg)**. The universal download supports both Apple silicon and Intel Macs on macOS 13 or later. A ZIP is also available under **Assets** on the [latest release](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
+2. Open the disk image, or extract the ZIP in Finder. **START-HERE.txt** has the full instructions.
 3. Quit an older Thinklet if it is open. Drag **Thinklet.app** into **Applications** in Finder’s sidebar. When updating, replace the app; its saved library and settings live separately.
 4. Open **Applications → Thinklet** and follow the welcome screen to **Connect your AI**. Enter credentials only inside Thinklet or the provider’s sign-in page.
 
@@ -25,14 +25,16 @@ This public repository contains downloads and instructions. The app’s source i
 
 ## Available computers
 
-- **Apple silicon Macs:** available now for M1 or newer and macOS 13 or later. The final extracted app passed notarization-ticket, signature and macOS Gatekeeper checks.
-- **Intel Macs, Windows and Linux:** packages are not yet available from this repository. Use only a package explicitly listed for your computer when one is published.
+- **Apple silicon and Intel Macs:** the universal download supports both, on macOS 13 or later. The package passed notarization-ticket, signature and macOS Gatekeeper checks.
+- **Windows and Linux:** packages are not yet available from this repository. Use only a package explicitly listed for your computer when one is published.
 
 ## Help and updates
 
 Read [START-HERE.txt](START-HERE.txt) or use Thinklet’s Help menu. Installation support: [chris@logicoutloud.com](mailto:chris@logicoutloud.com). Include your OS version, processor and error text; leave out passwords, API keys and private conversations.
 
-For a manual beta update, return to Releases, download a newer app package, quit Thinklet and replace the app in Applications. Follow the instructions on that release.
+Thinklet checks for a newer release one minute after launch and every three hours, and downloads it in the background. Choose **Restart and install** inside the app when ready. You can also use **Settings → Help & About → Updates → Check now**. Ordinary quitting does not install an update.
+
+If an older copy has no update controls, install the current Mac download manually: quit Thinklet and replace the app in Applications. Your saved library and settings are kept separately from the app.
 
 To remove the app, quit Thinklet and move Thinklet.app from Applications to the Trash. This does not erase your saved library or settings.
 
