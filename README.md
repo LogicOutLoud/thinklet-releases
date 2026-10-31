@@ -6,7 +6,9 @@ Your AI, at home on your computer. Use your own supported AI account, API key or
 
 **Available now:** the Developer ID signed, Apple-notarized universal Mac app for **Apple silicon and Intel Macs, macOS 13 Ventura or later**. The download above always points to the latest public release. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
 
-**New in beta 11:** restored the shared AI and capability bridge for existing and new Thinklets, including Behavior Decoder. Imported games and apps fill their available viewport instead of being forced into a scaled 16:10 frame. Available updates have a prominent header action with progress and **Restart & update** when ready. Narrow headers keep the update text and wrap controls without covering the navigation. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
+**New in beta 12:** converted games that connect through a local multiplayer SDK variable are recognized as ready to create a private session, fixing repeated **Add multiplayer** prompts. The browser player correctly reports connected game rooms and fills its available viewport. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
+
+Includes beta 11's shared AI and capability bridge for existing and new Thinklets, responsive imported-game viewports, and prominent update controls with background download progress and **Restart & update** when ready.
 
 Also includes beta 10’s **Assets…** browser, per-Thinklet mute, imported-game multiplayer preparation and Discover publishing review, Codex-native cover art, compact evolution progress and repaired **This Mac** settings.
 
