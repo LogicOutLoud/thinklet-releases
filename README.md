@@ -6,7 +6,9 @@ Your AI, at home on your computer. Use your own supported AI account, API key or
 
 **Available now:** the Developer ID signed, Apple-notarized universal Mac app for **Apple silicon and Intel Macs, macOS 13 Ventura or later**. The download above always points to the latest public release. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
 
-**New in beta 10:** browse a Thinklet’s pictures, sound, video and other media from **Assets…**; mute each Thinklet from its header or menu; prepare imported games for multiplayer and review them for publishing to Discover; generate and apply cover art through Codex’s built-in image generation; and use the repaired **This Mac** settings. Evolution progress stays compact without filling the game area with code. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/tag/v1.0.0-beta.10-mac-universal).
+**New in beta 11:** imported games and apps fill their available viewport instead of being forced into a scaled 16:10 frame. Available updates have a prominent header action with progress and **Restart & update** when ready. Narrow headers keep the update text and wrap controls without covering the navigation. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
+
+Also includes beta 10’s **Assets…** browser, per-Thinklet mute, imported-game multiplayer preparation and Discover publishing review, Codex-native cover art, compact evolution progress and repaired **This Mac** settings.
 
 ## Download and install on a Mac
 
