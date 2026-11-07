@@ -59,10 +59,26 @@ jobs:
         run: |
           $installer = Get-ChildItem 'kit/release/dist/*-win-${{ matrix.arch }}-preview.exe' | Select-Object -First 1
           if (-not $installer) { throw 'Installer is missing.' }
-          $install = Join-Path $env:RUNNER_TEMP 'ThinkletInstalled'
-          $process = Start-Process $installer.FullName -ArgumentList '/S', "/D=$install" -PassThru -Wait
+          $process = Start-Process $installer.FullName -ArgumentList '/S' -PassThru -Wait
           if ($process.ExitCode -ne 0) { throw "Installer exited with $($process.ExitCode)." }
-          ./kit/smoke-windows.ps1 -Executable (Join-Path $install 'Thinklet.exe')
+          $exe = $null
+          foreach ($i in 1..60) {
+            $entries = @(
+              Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
+              Get-ItemProperty 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
+            ) | Where-Object { $_.DisplayName -eq 'Thinklet' }
+            foreach ($entry in $entries) {
+              if ($entry.InstallLocation) {
+                $candidate = Join-Path $entry.InstallLocation.Trim('"') 'Thinklet.exe'
+                if (Test-Path $candidate) { $exe = $candidate; break }
+              }
+            }
+            if ($exe) { break }
+            Start-Sleep -Seconds 1
+          }
+          $entries | Select-Object DisplayName, DisplayVersion, InstallLocation | Format-List
+          if (-not $exe) { throw 'The installer did not register a usable per-user installation.' }
+          ./kit/smoke-windows.ps1 -Executable $exe -Kind installed
       - name: Retain installers and native check reports
         if: always()
         uses: actions/upload-artifact@v4
