@@ -10,6 +10,9 @@ permissions:
 jobs:
   windows:
     name: Windows ${{ matrix.arch }}
+    # GitHub requires release-write access to view unpublished drafts. The token is exposed only to the download step.
+    permissions:
+      contents: write
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 25
     strategy:
