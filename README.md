@@ -2,44 +2,46 @@
 
 Your AI, at home on your computer. Use your own supported AI account, API key or private local AI.
 
-[**Download the latest Mac beta →**](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg) · [Release notes and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/latest) · [Web app](https://app.thinklet.io) · [Installation guide](START-HERE.txt)
+[**Download for Mac**](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg) · [**Windows preview**](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-windows-x64.exe) · [**Linux**](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-amd64.deb)
 
-**Available now:** the Developer ID signed, Apple-notarized universal Mac app for **Apple silicon and Intel Macs, macOS 13 Ventura or later**. The download above always points to the latest public release. The app ZIP includes **START-HERE.txt**. This repository’s documentation/source ZIP is not the app; use the download link above or Releases → Assets.
+[All release files and checksums](https://github.com/LogicOutLoud/thinklet-releases/releases/latest) · [Installation guide](START-HERE.txt) · [Web app](https://app.thinklet.io)
 
-**New in beta 12:** converted games that connect through a local multiplayer SDK variable are recognized as ready to create a private session, fixing repeated **Add multiplayer** prompts. The browser player correctly reports connected game rooms and fills its available viewport. [Full release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
+## Choose your download
 
-Includes beta 11's shared AI and capability bridge for existing and new Thinklets, responsive imported-game viewports, and prominent update controls with background download progress and **Restart & update** when ready.
+| Computer | Download | Other formats |
+| --- | --- | --- |
+| Mac: Apple silicon or Intel, macOS 13 or later | [Universal Mac disk image](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg) | App ZIP under the release’s Assets |
+| Windows: Intel or AMD PC (x64) | [Windows x64 preview installer](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-windows-x64.exe) | Portable ZIP under Assets |
+| Windows: ARM64 PC | [Windows ARM64 preview installer](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-windows-arm64.exe) | Portable ZIP under Assets |
+| Linux: Intel or AMD PC (amd64/x64) | [Debian/Ubuntu package](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-amd64.deb) | [AppImage](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-amd64.AppImage) · [Portable archive](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-amd64.tar.gz) |
+| Linux: ARM64 computer | [Debian/Ubuntu ARM64 package](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-arm64.deb) | [ARM64 AppImage](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-arm64.AppImage) · [Portable archive](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-linux-arm64.tar.gz) |
 
-Also includes beta 10’s **Assets…** browser, per-Thinklet mute, imported-game multiplayer preparation and Discover publishing review, Codex-native cover art, compact evolution progress and repaired **This Mac** settings.
+The Mac app is Developer ID signed and Apple-notarized. **Windows downloads are unsigned previews**: Windows may warn about or block them, especially with Smart App Control. Contact support if your computer blocks a package; do not disable security protections to install it. Platform test details are recorded in the release notes.
 
-## Download and install on a Mac
+## Install
 
-1. Download the **[Mac disk image (.dmg)](https://github.com/LogicOutLoud/thinklet-releases/releases/latest/download/Thinklet-mac.dmg)**. The universal download supports both Apple silicon and Intel Macs on macOS 13 or later. A ZIP is also available under **Assets** on the [latest release](https://github.com/LogicOutLoud/thinklet-releases/releases/latest).
-2. Open the disk image, or extract the ZIP in Finder. **START-HERE.txt** has the full instructions.
-3. Quit an older Thinklet if it is open. Drag **Thinklet.app** into **Applications** in Finder’s sidebar. When updating, replace the app; its saved library and settings live separately.
-4. Open **Applications → Thinklet** and follow the welcome screen to **Connect your AI**. Enter credentials only inside Thinklet or the provider’s sign-in page.
+**Mac:** Open the disk image, quit an older Thinklet if it is open, and drag **Thinklet.app** into **Applications**. Open it from Applications. If updating, replace the app; your saved library and settings live separately. If macOS reports a damaged, unverifiable or malicious app, stop and contact support. Do not disable Gatekeeper or remove quarantine.
 
-If macOS says the app is damaged, cannot be verified or contains malware, stop and [contact support](mailto:chris@logicoutloud.com). Do not disable Gatekeeper or remove quarantine.
+**Windows:** Choose the installer for your processor and run it. It installs for your Windows account and adds Thinklet to Start. The ZIP is portable: extract the entire folder before opening **Thinklet.exe**.
 
-### Which ZIP should I download?
+**Linux:** On Debian or Ubuntu, install the downloaded `.deb` with your software installer, or run `sudo apt install ./Thinklet-linux-amd64.deb` (use the ARM64 filename for ARM64 computers). Launch Thinklet from your apps menu. For an AppImage, allow the file to run as a program first. If AppImage dependencies or sandbox restrictions prevent launch, use the `.deb` where supported or contact support. Extract the portable archive completely before running `cabinet-next`.
 
-Use the **app ZIP attached under a release’s Assets**. The green **Code → Download ZIP** button and GitHub’s **Source code** archives download this repository’s instructions only. They do **not** contain Thinklet.app, require no build commands, and cannot be installed as an app.
+Follow the welcome screen and choose **Connect your AI**. Enter credentials only inside Thinklet or the provider’s sign-in page. Some integrations depend on the operating system; see the capabilities offered by your copy of Thinklet.
 
-This public repository contains downloads and instructions. The app’s source is maintained separately. You do not need a GitHub account to read this guide or download a published public app package.
+## What’s new
 
-## Available computers
+Beta.39 adds Windows and Linux downloads and fixes Claude rejecting imported Thinklet updates because of an empty system block. It includes beta.38’s expanded Discover categories, capability metadata, search and publishing fixes. See the [release notes](https://github.com/LogicOutLoud/thinklet-releases/releases/latest) for changes and verification details.
 
-- **Apple silicon and Intel Macs:** the universal download supports both, on macOS 13 or later. The package passed notarization-ticket, signature and macOS Gatekeeper checks.
-- **Windows and Linux:** packages are not yet available from this repository. Use only a package explicitly listed for your computer when one is published.
+## Which ZIP is the app?
+
+Use an **app package under a release’s Assets**. GitHub’s green **Code → Download ZIP** button and **Source code** archives download this repository’s instructions; they do not contain an installable app. This public repository contains downloads and instructions. The app’s source is maintained separately.
 
 ## Help and updates
 
-Read [START-HERE.txt](START-HERE.txt) or use Thinklet’s Help menu. Installation support: [chris@logicoutloud.com](mailto:chris@logicoutloud.com). Include your OS version, processor and error text; leave out passwords, API keys and private conversations.
+Use Thinklet’s Help menu or [email installation support](mailto:chris@logicoutloud.com). Include your OS version, processor and error text. Leave out passwords, API keys and private conversations.
 
-Thinklet checks for a newer release one minute after launch and every three hours, and downloads it in the background. Choose **Restart and install** inside the app when ready. You can also use **Settings → Help & About → Updates → Check now**. Ordinary quitting does not install an update.
+Check **Settings → Help & About → Updates**. Mac, Windows installer and Linux AppImage copies support in-app updates. Portable Windows/Linux archives and Debian packages may require downloading and installing the next package. Choose **Restart and install** when offered; ordinary quitting does not install an update.
 
-If an older copy has no update controls, install the current Mac download manually: quit Thinklet and replace the app in Applications. Your saved library and settings are kept separately from the app.
-
-To remove the app, quit Thinklet and move Thinklet.app from Applications to the Trash. This does not erase your saved library or settings.
+To uninstall, quit Thinklet first. On Mac, move Thinklet.app to Trash. On Windows, use Installed apps. On Debian/Ubuntu, remove the `cabinet-next` package. Your saved library and settings are stored separately.
 
 © Logic Out Loud LLC
