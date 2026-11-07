@@ -66,17 +66,18 @@ jobs:
             $entries = @(
               Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
               Get-ItemProperty 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
-            ) | Where-Object { $_.DisplayName -eq 'Thinklet' }
+            ) | Where-Object { $_.DisplayName -match '^Thinklet( |$)' -and $_.DisplayVersion -eq '1.0.0-beta.39' }
             foreach ($entry in $entries) {
-              if ($entry.InstallLocation) {
-                $candidate = Join-Path $entry.InstallLocation.Trim('"') 'Thinklet.exe'
+              # electron-builder registers "Thinklet <version>" and puts the executable in DisplayIcon.
+              if ($entry.DisplayIcon) {
+                $candidate = ($entry.DisplayIcon -replace ',\d+$', '').Trim('"')
                 if (Test-Path $candidate) { $exe = $candidate; break }
               }
             }
             if ($exe) { break }
             Start-Sleep -Seconds 1
           }
-          $entries | Select-Object DisplayName, DisplayVersion, InstallLocation | Format-List
+          $entries | Select-Object DisplayName, DisplayVersion, DisplayIcon | Format-List
           if (-not $exe) { throw 'The installer did not register a usable per-user installation.' }
           ./kit/smoke-windows.ps1 -Executable $exe -Kind installed
       - name: Retain installers and native check reports
@@ -93,3 +94,4 @@ jobs:
           if-no-files-found: error
           compression-level: 0
           retention-days: 1
+          overwrite: true
