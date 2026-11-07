@@ -1,0 +1,75 @@
+name: Verify Windows release binaries (manual)
+
+# Package and test the release binaries; application source is maintained separately.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    name: Windows ${{ matrix.arch }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: windows-latest
+          - arch: arm64
+            runner: windows-11-arm
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Download and verify draft candidates
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $zip = 'Thinklet-1.0.0-beta.39-win-${{ matrix.arch }}-preview.zip'
+          $kit = 'Thinklet-1.0.0-beta.39-windows-packaging-kit.zip'
+          gh release download v1.0.0-beta.39 --repo $env:GITHUB_REPOSITORY --pattern $zip --pattern $kit --pattern SHA256SUMS --dir payload
+          if ($LASTEXITCODE -ne 0) { throw 'Could not download the draft candidates.' }
+          foreach ($file in $zip, $kit) {
+            $line = Get-Content payload/SHA256SUMS | Where-Object { $_ -match ('  ' + [regex]::Escape($file) + '$') }
+            if (-not $line) { throw "Missing checksum for $file" }
+            $expected = ($line -split '\s+')[0].ToLowerInvariant()
+            $actual = (Get-FileHash "payload/$file" -Algorithm SHA256).Hash.ToLowerInvariant()
+            if ($expected -ne $actual) { throw "Checksum mismatch for $file" }
+          }
+          Expand-Archive "payload/$kit" kit
+          Expand-Archive "payload/$zip" app
+      - name: Launch portable app on Windows
+        shell: pwsh
+        run: ./kit/smoke-windows.ps1 -Executable app/Thinklet.exe
+      - name: Build the installer from the verified application
+        working-directory: kit
+        run: npm ci --no-audit --no-fund && node build-installer.mjs ${{ matrix.arch }} ../app
+      - name: Install and launch the application
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem 'kit/release/dist/*-win-${{ matrix.arch }}-preview.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Installer is missing.' }
+          $install = Join-Path $env:RUNNER_TEMP 'ThinkletInstalled'
+          $process = Start-Process $installer.FullName -ArgumentList '/S', "/D=$install" -PassThru -Wait
+          if ($process.ExitCode -ne 0) { throw "Installer exited with $($process.ExitCode)." }
+          ./kit/smoke-windows.ps1 -Executable (Join-Path $install 'Thinklet.exe')
+      - name: Retain installers and native check reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-${{ matrix.arch }}
+          path: |
+            kit/release/dist/*.exe
+            kit/release/dist/*.blockmap
+            kit/release/dist/latest.yml
+            release/windows-smoke-*.json
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1
