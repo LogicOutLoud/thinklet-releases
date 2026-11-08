@@ -35,9 +35,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $zip = 'Thinklet-1.0.0-beta.39-win-${{ matrix.arch }}-preview.zip'
-          $kit = 'Thinklet-1.0.0-beta.39-windows-packaging-kit.zip'
-          gh release download v1.0.0-beta.39 --repo $env:GITHUB_REPOSITORY --pattern $zip --pattern $kit --pattern SHA256SUMS --dir payload
+          $zip = 'Thinklet-1.0.0-beta.40-win-${{ matrix.arch }}-preview.zip'
+          $kit = 'Thinklet-1.0.0-beta.40-windows-packaging-kit.zip'
+          gh release download v1.0.0-beta.40 --repo $env:GITHUB_REPOSITORY --pattern $zip --pattern $kit --pattern SHA256SUMS --dir payload
           if ($LASTEXITCODE -ne 0) { throw 'Could not download the draft candidates.' }
           foreach ($file in $zip, $kit) {
             $line = Get-Content payload/SHA256SUMS | Where-Object { $_ -match ('  ' + [regex]::Escape($file) + '$') }
@@ -66,7 +66,7 @@ jobs:
             $entries = @(
               Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
               Get-ItemProperty 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
-            ) | Where-Object { $_.DisplayName -match '^Thinklet( |$)' -and $_.DisplayVersion -eq '1.0.0-beta.39' }
+            ) | Where-Object { $_.DisplayName -match '^Thinklet( |$)' -and $_.DisplayVersion -eq '1.0.0-beta.40' }
             foreach ($entry in $entries) {
               # electron-builder registers "Thinklet <version>" and puts the executable in DisplayIcon.
               if ($entry.DisplayIcon) {
