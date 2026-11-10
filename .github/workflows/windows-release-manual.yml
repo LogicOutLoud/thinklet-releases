@@ -3,6 +3,10 @@ name: Verify Windows release binaries (manual)
 # Package and test the release binaries; application source is maintained separately.
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: The release's version, without the v (1.0.0-beta.41)
+        required: true
 
 permissions:
   contents: read
@@ -15,6 +19,9 @@ jobs:
       contents: write
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 25
+    env:
+      # Through the environment, never pasted into a script: the input is checked before anything uses it.
+      VERSION: ${{ inputs.version }}
     strategy:
       fail-fast: false
       matrix:
@@ -35,9 +42,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $zip = 'Thinklet-1.0.0-beta.40-win-${{ matrix.arch }}-preview.zip'
-          $kit = 'Thinklet-1.0.0-beta.40-windows-packaging-kit.zip'
-          gh release download v1.0.0-beta.40 --repo $env:GITHUB_REPOSITORY --pattern $zip --pattern $kit --pattern SHA256SUMS --dir payload
+          if ($env:VERSION -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.]+)?$') { throw "Not a release version: $env:VERSION" }
+          $zip = "Thinklet-$($env:VERSION)-win-${{ matrix.arch }}-preview.zip"
+          $kit = "Thinklet-$($env:VERSION)-windows-packaging-kit.zip"
+          gh release download "v$($env:VERSION)" --repo $env:GITHUB_REPOSITORY --pattern $zip --pattern $kit --pattern SHA256SUMS --dir payload
           if ($LASTEXITCODE -ne 0) { throw 'Could not download the draft candidates.' }
           foreach ($file in $zip, $kit) {
             $line = Get-Content payload/SHA256SUMS | Where-Object { $_ -match ('  ' + [regex]::Escape($file) + '$') }
@@ -66,7 +74,7 @@ jobs:
             $entries = @(
               Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
               Get-ItemProperty 'HKCU:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue
-            ) | Where-Object { $_.DisplayName -match '^Thinklet( |$)' -and $_.DisplayVersion -eq '1.0.0-beta.40' }
+            ) | Where-Object { $_.DisplayName -match '^Thinklet( |$)' -and $_.DisplayVersion -eq $env:VERSION }
             foreach ($entry in $entries) {
               # electron-builder registers "Thinklet <version>" and puts the executable in DisplayIcon.
               if ($entry.DisplayIcon) {
